@@ -510,3 +510,25 @@ Body:----------zh-cn--
   
 <!--#include virtual="include/bottom.html" --> 
 ----------zh-cn--
+
+Content-language: zh-tw
+Content-type: text/html; charset=UTF-8
+Body:----------zh-tw--
+<!--#set var="TITLE" value="資源不再可用！"
+--><!--#include virtual="include/top.html" -->
+
+    請求的 URL 在伺服器上不再可用，並且沒有設置轉發的地址。
+  
+  <!--#if expr="-n v('HTTP_REFERER')" -->
+  
+    請通知<a href="<!--#echo encoding="url" var="HTTP_REFERER" -->">來源頁面</a>
+    的作者該連結已過期。
+   
+  <!--#else -->
+  
+    如果您從外部頁面的一個連結訪問，請聯繫此頁面的作者。
+   
+  <!--#endif -->
+  
+<!--#include virtual="include/bottom.html" --> 
+----------zh-tw--

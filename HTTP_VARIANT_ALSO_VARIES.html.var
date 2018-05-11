@@ -263,3 +263,14 @@ Body:----------zh-cn--
 
 <!--#include virtual="include/bottom.html" -->
 ----------zh-cn--
+
+Content-language: zh-tw
+Content-type: text/html; charset=UTF-8
+Body:----------zh-tw--
+<!--#set var="TITLE" value="變元是可變的！"
+--><!--#include virtual="include/top.html" -->
+
+    請求實體的一個變元自身是一個可被協商的資源。無法訪問。
+
+<!--#include virtual="include/bottom.html" -->
+----------zh-tw--

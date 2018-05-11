@@ -256,3 +256,14 @@ Body:----------zh-cn--
    
 <!--#include virtual="include/bottom.html" -->
 ----------zh-cn--
+
+Content-language: zh-tw
+Content-type: text/html; charset=UTF-8
+Body:----------zh-tw--
+<!--#set var="TITLE" value="提交的 URI 過長！"
+--><!--#include virtual="include/top.html" -->
+
+    請求 URL 的長度超出了伺服器的長度限制。該請求無法被處理。
+   
+<!--#include virtual="include/bottom.html" -->
+----------zh-tw--

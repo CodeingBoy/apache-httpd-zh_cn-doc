@@ -310,6 +310,25 @@ Body:----------ro--
 <!--#include virtual="include/bottom.html" -->
 ----------ro--
 
+Content-language: ru
+Content-type: text/html; charset=UTF-8
+Body:----------ru--
+<!--#set var="TITLE" value="Необходима аутентификация!"
+--><!--#include virtual="include/top.html" -->
+
+    Сервер не смог проверить данные аутентификации
+    на доступ к "<!--#echo encoding="url" var="REDIRECT_URL" -->".
+    Вы предоставили неверные учётные данные (например: пароль), или Ваш
+    браузер не знает, как их предоставить.
+
+  <!--#include virtual="include/spacer.html" -->
+
+    Если Вам разрешено запрашивать данный документ, пожалуйста,
+    проверьте свои учётные данные и повторите запрос.
+
+<!--#include virtual="include/bottom.html" -->
+----------ru--
+
 Content-language: sr
 Content-type: text/html; charset=UTF-8
 Body:----------sr--
@@ -368,3 +387,19 @@ Body:----------tr--
 
 <!--#include virtual="include/bottom.html" -->
 ----------tr--
+
+Content-language: zh-cn
+Content-type: text/html; charset=UTF-8
+Body:----------zh-cn--
+<!--#set var="TITLE" value="需要认证！"
+--><!--#include virtual="include/top.html" -->
+
+    服务器无法验证您被授权访问 URL "<!--#echo encoding="url" var="REDIRECT_URL" -->"。
+    这可能是因为您提供了错误的凭据（如，错误的密码），或您的浏览器不知道如何提供必需的凭据。
+
+  <!--#include virtual="include/spacer.html" -->
+
+    如果您确信您具有访问该文档的权限，请检查您的用户 ID 和密码，并再试一次。
+
+<!--#include virtual="include/bottom.html" -->
+----------zh-cn--

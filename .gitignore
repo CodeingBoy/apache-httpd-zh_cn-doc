@@ -1,3 +1,5 @@
 .svn/
 _off/
 _dist/
+*.html
+*.html.*

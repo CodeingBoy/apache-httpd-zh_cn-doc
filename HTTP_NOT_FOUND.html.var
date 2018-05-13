@@ -499,8 +499,8 @@ Body:----------zh-cn--
 
   <!--#if expr="-n v('HTTP_REFERER')" -->
 
-    在<a href="<!--#echo encoding="url" var="HTTP_REFERER" -->">来源页面</a>上的链接可能有误或已过期。
-    请将错误通知给<a href="<!--#echo encoding="url" var="HTTP_REFERER" -->">该页面</a>的作者。
+    在 <a href="<!--#echo encoding="url" var="HTTP_REFERER" -->">来源页面</a>上的链接可能有误或已过期。
+    请将错误通知给<a href="<!--#echo encoding="url" var="HTTP_REFERER" -->">该来源页面</a>的作者。
 
   <!--#else -->
 
@@ -522,7 +522,7 @@ Body:----------zh-tw--
   <!--#if expr="-n v('HTTP_REFERER')" -->
 
     在<a href="<!--#echo encoding="url" var="HTTP_REFERER" -->">來源頁面</a>上的連結可能有誤或已過期。
-    請將錯誤通知給<a href="<!--#echo encoding="url" var="HTTP_REFERER" -->">該頁面</a>的作者。
+    請將錯誤通知給<a href="<!--#echo encoding="url" var="HTTP_REFERER" -->">該來源頁面</a>的作者。
 
   <!--#else -->
 

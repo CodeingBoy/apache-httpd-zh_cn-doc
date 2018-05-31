@@ -45,12 +45,12 @@
     <p>Apache HTTP 服务器通过在纯文本的配置文件中放置<a
     href="mod/directives.html">指令</a>来进行配置。
     主配置文件一般被命名为
-    <code>httpd.conf</code>。该文件的位置在编译期被设置，
-    但也可以使用 <code>-f</code> 命令行参数覆盖。
+    <code>httpd.conf</code>。该文件的位置在编译的时候被设置，但也可以使用
+    <code>-f</code> 命令行参数覆盖。
     此外，可以通过使用 <directive module="core">Include</directive>
     指令引入其它配置文件，并且可以使用通配符批量引入配置文件。
-    配置的指令需要放置在这些配置文件之中。对主配置文件的更改
-    将只在 httpd 启动或重启时被载入。</p>
+    配置的指令需要放置在这些配置文件之中。
+    对主配置文件的更改将只在 httpd 启动或重启时被载入。</p>
 
     <p>服务器也会读取一个包含 mime 文档类型的文件；
     该文件的名字通过 <directive
@@ -65,23 +65,19 @@
     在行末放置反斜线 “\” 表示在下一行延续当前行指令的内容。
     注意，在行末与反斜线之间不能有任何其它字符或空格。</p>
 
-    <p>指令的参数通过空白符分隔，
-    如果某一个参数包含空格，你必须使用双引号将该参数包裹起来。</p>
+    <p>指令的参数通过空白符分隔，如果某一个参数包含空格，你必须使用双引号将该参数包裹起来。</p>
 
-    <p>配置文件中的指令是不区分大小写的，
-    但指令的参数通常是区分大小写的。
+    <p>配置文件中的指令是不区分大小写的，但指令的参数通常是区分大小写的。
     以 “#” 开头的一行将被认为是注释，并被忽略。
     注释<strong>不能</strong>与配置指令放在同一行中。
-    指令之前的空白符将被忽略，所以你可以对指令进行缩进，
-    以便提高配置文件的可读性。
+    指令之前的空白符将被忽略，所以你可以对指令进行缩进，以便提高配置文件的可读性。
     同样，空白行也将被忽略。</p>
 
     <p>通过 <directive
     module="core">Define</directive> 指令定义的变量值，或是 shell 的环境变量，
     可以以 <code>${VAR}</code> 形式在配置文件中使用。
-    假设 “VAR” 是一个有效变量的名字，
-    配置文件行中的 ${VAR} 占位符将被替换为该变量的值，
-    并继续进行处理，就如该变量的值是直接填入配置文件中的一样。
+    假设 “VAR” 是一个有效变量的名字，配置文件行中的 ${VAR}
+    占位符将被替换为该变量的值，并继续进行处理，就如同该变量的值是直接填入配置文件中的一样。
     通过 <directive module="core">Define</directive> 定义的变量优先于 shell 环境变量。
     如果找不到变量 “VAR”，<code>${VAR}</code> 将被保留，并记录一个警告信息。
     变量名不能包含 “:” 字符，以免与
@@ -92,20 +88,18 @@
     module="mod_env">SetEnv</directive> 定义的变量，
     由于生效时间太晚，不能用于配置中变量值的替换。</p>
 
-    <p>普通配置文件中的一行，在进行变量替换和多行拼接后，
-    最大的长度大约是 16 MiB。
-    而在 <a href="configuring.html#htaccess">.htaccess 文件</a>中，
-    该最大长度限制是 8190 字符。</p>
+    <p>普通配置文件中的一行，在进行变量替换和多行拼接后，最大的长度大约是 16 MiB。
+    而在 <a href="configuring.html#htaccess">.htaccess
+    文件</a>中，该最大长度限制是 8190 字符。</p>
 
     <p>你可以在不启动服务器的情况下，通过使用
     <code>apachectl configtest</code> 或
-    <code>-t</code> 命令行选项
-    来检查配置文件是否有语法错误。</p>
+    <code>-t</code> 命令行选项来检查配置文件是否有语法错误。</p>
 
     <p>你可以使用 <module>mod_info</module> 的 <code>-DDUMP_CONFIG</code>
-    来转储包含所有引入配置文件的配置信息和环境变量，注释和没有成功匹配的
+    来转储包含所有引入配置文件的配置信息和环境变量，该信息不会包含注释和没有成功匹配的
     <directive module="core" type="section">IfDefine</directive> 和
-    <directive module="core" type="section">IfModule</directive> 将被移除。
+    <directive module="core" type="section">IfModule</directive>。
     但请注意，输出没有反映重复指令之间可能发生的合并或覆盖行为。</p>
   </section>
 
@@ -125,13 +119,13 @@
     <p>httpd 是一个模块化的服务器。“模块化”暗示了服务器的核心只包含了最基本的功能。
     而拓展的其它功能可以通过<a
     href="mod/">模块</a>加载入 httpd。默认情况下，只有 <a
-    href="mod/module-dict.html#Status">base</a> 集合中的模块
-    会在编译期包含进服务器。
-    如果服务器被编译为可以使用 <a href="dso.html">动态加载的模块</a>，
-    模块就可以被单独编译，并使用 <directive module="mod_so">LoadModule</directive>
+    href="mod/module-dict.html#Status">base</a> 集合中的模块会在编译时包含进服务器。
+    如果服务器被编译为可以使用<a
+    href="dso.html">动态加载的模块</a>，模块就可以被单独编译，并使用
+    <directive module="mod_so">LoadModule</directive>
     指令在任何时候加载。
-    否则，为了添加或删除模块，httpd 必须被重新编译。
-    根据特定模块是否存在，配置指令可以有选择地执行，只需要将它们放在 <directive
+    否则，为了添加或删除模块，必须重新编译 httpd。
+    根据特定模块是否存在，可以选择性地执行配置指令，只需要将它们放在 <directive
     module="core" type="section">IfModule</directive> 包裹的块中即可。
     然而，<directive type="section">IfModule</directive> 块并不是必需的，
     在某些情况下可能会掩盖你缺失了重要模块的问题。</p>
@@ -171,12 +165,11 @@
     你可以将指令放在 <directive module="core" type="section">VirtualHost</directive>
     片段中，这样指令就只会作用于对特定网站的请求了。</p>
 
-    <p>虽然大多数指令都可以被放在上面的片段中，
-    但在某些上下文中，不能使用部分指令。
+    <p>虽然大多数指令都可以被放在上面的片段中，但在某些上下文中，不能使用部分指令。
     例如，控制进程创建的指令只能放在主服务器的上下文中。
-    要查看什么指令能够被放在哪些上下文，请参考指令说明中的 <a
+    要查看某个指令能够被放在哪些上下文，请参考指令说明中的 <a
     href="mod/directive-dict.html#Context">Context</a> 部分。
-    此外，也可以看看 <a
+    此外，也可以看看<a
     href="sections.html">目录、位置、文件片段的工作原理</a>。</p>
   </section>
 
@@ -193,10 +186,9 @@
     <p>httpd 可以通过使用 web 文档树中的特殊文件实现去中心化的配置管理。
     该特殊文件一般被命名为 <code>.htaccess</code>，但你也可以通过
     <directive module="core">AccessFileName</directive> 指定任何其它名字。
-    放置于 <code>.htaccess</code> 文件中的指令应用于该文件所在的目录和子目录，
-    <code>.htaccess</code> 的语法与主配置文件相同。
-    由于 <code>.htaccess</code> 文件将在每次请求时被读取，
-    对其做出的修改将立即生效。</p>
+    放置于 <code>.htaccess</code> 文件中的指令应用于该文件所在的目录和子目录，<code>.htaccess</code>
+    的语法与主配置文件相同。
+    由于 <code>.htaccess</code> 文件将在每次请求时被读取，对其做出的修改将立即生效。</p>
 
     <p>要查看什么指令能够放置在 <code>.htaccess</code> 文件中，
     请参考各个指令的 <a
@@ -205,7 +197,6 @@
     <directive module="core">AllowOverride</directive>
     控制哪些指令能被放置在 <code>.htaccess</code> 文件中。</p>
 
-    <p>要获取更多关于 <code>.htaccess</code> 文件的信息，
-    参看 <a href="howto/htaccess.html">.htaccess 的教程</a>。</p>
+    <p>要获取更多关于 <code>.htaccess</code> 文件的信息，参看 <a href="howto/htaccess.html">.htaccess 的教程</a>。</p>
   </section>
 </manualpage>

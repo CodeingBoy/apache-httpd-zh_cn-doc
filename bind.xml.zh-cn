@@ -47,7 +47,7 @@
     </related>
 
 
-    <p>当 httpd 启动时，它会在绑定本地机器上的某些端口和地址，并等待入站请求。
+    <p>当 httpd 启动时，它会绑定本地机器上的某些端口和地址，并等待入站请求。
     默认情况下，它会监听机器上所有的地址。但你可能需要指定它监听指定的端口和/或指定的地址。
     对地址和端口的配置通常会结合<a href="vhosts/">虚拟主机</a>功能来使用，该功能会根据不同的
     IP 地址、主机名和端口来决定 <code>httpd</code> 的响应。</p>
@@ -148,7 +148,7 @@ Listen 192.0.2.5:8000
     <p>另外，在诸如 Linux 和 Tru64 等平台上，处理 IPv4 和 IPv6
     通信的<strong>唯一</strong>办法就是使用映射地址。如果你希望 <code>httpd</code>
     能用最少的套接字来处理 IPv4 和 IPv6 通信（需要使用到映射到 IPv4 地址的 IPv6 地址），可以指定
-    <code>--enable-v4-mapped</code> <program>配置</program>选项。</p>
+    <code>--enable-v4-mapped</code> <program>configure</program> 选项。</p>
 
     <p><code>--enable-v4-mapped</code> 在除了
     FreeBSD、NetBSD 和 OpenBSD 以外的平台上都是默认选项，因此你的 httpd 构建时可能已经启用了该选项。</p>
@@ -166,7 +166,7 @@ Listen 192.0.2.1:80
 
     <p>如果你所在的平台支持 IPv6，且你希望 httpd 在分别独立的套接字里处理 IPv4 和
     IPv6 通信（例如你不想使用 IPv4 映射地址），可以指定
-    <code>--disable-v4-mapped</code> <program>配置</program>选项，<code>--disable-v4-mapped</code>
+    <code>--disable-v4-mapped</code> <program>configure</program> 选项，<code>--disable-v4-mapped</code>
     在 FreeBSD、NetBSD 和 OpenBSD 上是默认选项</p>
   </section>
 
